@@ -5,9 +5,9 @@ A modern iOS application using a **workspace + SPM package** architecture for cl
 <table>
   <tr>
     <td><img src="screenshots/Screenshot%202025-11-06%20at%2017.47.56.png" width="100%"></td>
-    <td>img src="screenshots/Screenshot%202025-11-06%20at%2017.47.56.png" width="100%"></td>
-    <td>img src="screenshots/Screenshot%202025-11-06%20at%2017.47.56.png" width="100%"></td>
-    <td>img src="screenshots/Screenshot%202025-11-06%20at%2017.47.56.png" width="100%"></td>
+    <td><img src="screenshots/Screenshot%202025-11-06%20at%2017.47.56.png" width="100%"></td>
+    <td><img src="screenshots/Screenshot%202025-11-06%20at%2017.47.56.png" width="100%"></td>
+    <td><img src="screenshots/Screenshot%202025-11-06%20at%2017.47.56.png" width="100%"></td>
   </tr>
 </table>
 
