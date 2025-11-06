@@ -32,6 +32,9 @@ public struct OverheadFeetView: View {
     private let targetDistance: Double = 10.0 // meters
     private let strideLength: Double = 0.6
     
+    // UserDefaults key for persisting records
+    private let topTimesKey = "TopTimes"
+    
     public init() {}
     
     private var distanceInMeters: Double {
@@ -61,6 +64,23 @@ public struct OverheadFeetView: View {
         return String(format: "%.2f", time)
     }
     
+    // Load top times from UserDefaults
+    private func loadTopTimes() {
+        if let savedTimes = UserDefaults.standard.array(forKey: topTimesKey) as? [Double],
+           savedTimes.count == 3 {
+            topTimes = savedTimes.map { TimeInterval($0) }
+        } else {
+            // Use default values if no saved records exist
+            topTimes = [30.00, 30.00, 30.00]
+        }
+    }
+    
+    // Save top times to UserDefaults
+    private func saveTopTimes() {
+        let timesToSave = topTimes.map { Double($0) }
+        UserDefaults.standard.set(timesToSave, forKey: topTimesKey)
+    }
+    
     private func updateTopTimesIfNeeded() {
         guard isTargetReached else { return }
         let newTime = elapsedTime
@@ -87,6 +107,7 @@ public struct OverheadFeetView: View {
             // Update top times after animation starts
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 topTimes = Array(updatedTimes.prefix(3))
+                saveTopTimes() // Persist the updated records
                 animateTimeToRecord = false
                 animatingTime = nil
                 newRecordIndex = nil
@@ -475,6 +496,9 @@ public struct OverheadFeetView: View {
                         currentSpeed = max(0, currentSpeed - 0.05)
                     }
                 }
+            }
+            .onAppear {
+                loadTopTimes()
             }
             .onChange(of: isTargetReached) { reached in
                 if reached {
