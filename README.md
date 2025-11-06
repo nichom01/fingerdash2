@@ -2,7 +2,14 @@
 
 A modern iOS application using a **workspace + SPM package** architecture for clean separation between app shell and feature code.
 
-![Screenshot](screenshots/Screenshot%202025-11-06%20at%2017.47.56.png)
+<table>
+  <tr>
+    <td><img src="screenshots/Screenshot%202025-11-06%20at%2017.47.56.png" width="100%"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
 
 ## AI Assistant Rules Files
 
